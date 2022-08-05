@@ -1,0 +1,5 @@
+include CHANGELOG.md
+include LICENSE.md
+include pyproject.toml
+include README.md
+include src/*/py.typed

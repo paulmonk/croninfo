@@ -1,0 +1,13 @@
+# Main
+backports.zoneinfo; python_version < "3.9"
+importlib_metadata; python_version < '3.8'
+rich
+typer
+tzlocal
+
+# Testing
+coverage
+pytest
+pytest-mock
+pytest-randomly
+time-machine
