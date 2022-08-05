@@ -12,15 +12,16 @@ ENV PATH "$VIRTUAL_ENV/bin:$PATH"
 RUN python -m pip install --no-cache-dir --upgrade pip setuptools wheel
 
 # Install requirements seperately to take advantage of layer caching.
-COPY requirements/py39.txt .
-RUN python -m pip install --no-cache-dir --upgrade -r py39.txt
+COPY setup.cfg .
+RUN python -c "import configparser; c = configparser.ConfigParser(); c.read('setup.cfg'); print(c['options']['install_requires'])" > requirements.txt
+# hadolint ignore=DL3059
+RUN python -m pip install --no-cache-dir -r requirements.txt
 
 # Copy minimal set of package files
 COPY MANIFEST.in .
 COPY README.md .
 COPY LICENSE.md .
 COPY pyproject.toml .
-COPY setup.cfg .
 COPY src ./src
 
 # Install croninfo package.
