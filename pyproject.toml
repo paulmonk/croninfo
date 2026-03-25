@@ -29,3 +29,6 @@ addopts = """\
     --strict-config
     --strict-markers
     """
+
+[tool.uv]
+exclude-newer = "21 days"
