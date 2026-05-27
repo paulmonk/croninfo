@@ -1,4 +1,4 @@
-FROM python:3.9-slim-bullseye
+FROM python:3.13.6-slim-bullseye
 
 # Set separate working directory for easier debugging.
 WORKDIR /app
